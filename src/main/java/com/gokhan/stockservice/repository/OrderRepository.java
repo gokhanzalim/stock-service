@@ -4,7 +4,9 @@ import com.gokhan.stockservice.model.entity.Order;
 import com.gokhan.stockservice.model.response.StatisticsResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
@@ -20,4 +22,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             " from Order o group by year(o.createdDate),month(o.createdDate)" +
             " order by year(o.createdDate),month(o.createdDate)")
     List<StatisticsResponse> getAllOrderStatisticsPerMonth();
+
+    @Query("select o from Order o where o.createdDate BETWEEN :startDate AND :endDate")
+    List<Order> getAllBetweenDates(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 }

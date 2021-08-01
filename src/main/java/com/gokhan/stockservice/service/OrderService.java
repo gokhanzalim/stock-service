@@ -2,8 +2,10 @@ package com.gokhan.stockservice.service;
 
 import com.gokhan.stockservice.model.entity.Order;
 import com.gokhan.stockservice.model.request.CreateOrderRequest;
+import com.gokhan.stockservice.model.request.GetAllOrderDateSearch;
 import com.gokhan.stockservice.model.response.CreateOrderResponse;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,4 +15,6 @@ public interface OrderService {
     Optional<Order> findById(Long id);
 
     List<Order> findByUserIdAndActive(Long id, boolean isActive);
+
+    List<Order> getAllBetweenDates(GetAllOrderDateSearch request);
 }

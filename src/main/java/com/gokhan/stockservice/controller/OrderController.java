@@ -1,6 +1,7 @@
 package com.gokhan.stockservice.controller;
 
 import com.gokhan.stockservice.model.request.CreateOrderRequest;
+import com.gokhan.stockservice.model.request.GetAllOrderDateSearch;
 import com.gokhan.stockservice.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,4 +26,11 @@ public class OrderController {
     public ResponseEntity<?> save(@Valid @RequestBody CreateOrderRequest createOrderRequest) {
         return ResponseEntity.ok(orderService.order(createOrderRequest));
     }
+
+    @PostMapping("/search")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> searchOrdersBetweenDates(@Valid @RequestBody GetAllOrderDateSearch request) {
+        return ResponseEntity.ok(orderService.getAllBetweenDates(request));
+    }
+
 }

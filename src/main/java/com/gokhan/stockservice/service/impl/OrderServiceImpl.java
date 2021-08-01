@@ -7,6 +7,7 @@ import com.gokhan.stockservice.model.entity.Book;
 import com.gokhan.stockservice.model.entity.Order;
 import com.gokhan.stockservice.model.entity.Stock;
 import com.gokhan.stockservice.model.request.CreateOrderRequest;
+import com.gokhan.stockservice.model.request.GetAllOrderDateSearch;
 import com.gokhan.stockservice.model.response.CreateOrderResponse;
 import com.gokhan.stockservice.repository.OrderRepository;
 import com.gokhan.stockservice.service.BookService;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -85,6 +87,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> findByUserIdAndActive(Long id, boolean isActive) {
         return orderRepository.findByUserIdAndActive(id, isActive);
+    }
+
+    @Override
+    public List<Order> getAllBetweenDates(GetAllOrderDateSearch request) {
+        return orderRepository.getAllBetweenDates(request.getStartDate(), request.getEndDate());
     }
 
     public BigDecimal calculatePercentage(BigDecimal obtained, BigDecimal total) {
