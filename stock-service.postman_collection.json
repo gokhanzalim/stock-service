@@ -1,0 +1,380 @@
+{
+	"info": {
+		"_postman_id": "f46576db-d8b5-484e-88ff-d09472c671e3",
+		"name": "stock-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\":\"gokhan\",\r\n     \"password\":\"12345\",\r\n     \"email\":\"gzalim01@gmail.com\",\r\n     \"userType\":\"ADMIN\",\r\n     \"roles\":[\"admin\",\"user\"]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\":\"gokhan\",\r\n     \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc2NzIzNzEsImlhdCI6MTYyNzY3MjA3MX0.u-_Mg8QU8_3n0Q5-MrsR7Qxe7kqIZFFb_sYO_IIo_ds",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\":\"Horror\",\r\n        \"description\":\"Category Horror\"\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"Gone Girl\",\r\n   \"price\":100,\r\n   \"categoryId\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Horror\",\r\n    \"bookId\":3,\r\n    \"quantity\":\"25\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/stock/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stock",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\":3,\r\n    \"discount\":10,\r\n    \"amount\":10,\r\n    \"quantity\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/order/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\":3,\r\n    \"quantity\":28\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/stock/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stock",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Monthly Statistic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"year\":2021,\r\n     \"month\":8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/statistic/monthly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"statistic",
+						"monthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All order statistics per month",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW4iLCJleHAiOjE2Mjc4MjEyMzcsImlhdCI6MTYyNzgyMDkzN30.SuGMXRi0OvIoy4zo8qaO2_bc0BhWzTgNexHis-OHUQI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/statistic/allorderstatisticspermonth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"statistic",
+						"allorderstatisticspermonth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
