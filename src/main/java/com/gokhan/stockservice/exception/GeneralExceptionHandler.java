@@ -24,7 +24,7 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   @NotNull HttpStatus status,
                                                                   @NotNull WebRequest request) {
         Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach(error ->{
+        ex.getBindingResult().getAllErrors().forEach(error -> {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
@@ -36,14 +36,14 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     protected ResponseEntity<?> handleBusiness(BusinessException exception, WebRequest request) {
         ResultException resultException =
-                     new ResultException(exception.getType(), exception.getMessage(),exception.getCode(), exception.getDetails());
+                new ResultException(exception.getType(), exception.getMessage(), exception.getCode(), exception.getDetails());
         return new ResponseEntity<>(resultException, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(AuthorizationException.class)
     protected ResponseEntity<?> handleBusiness(AuthorizationException exception, WebRequest request) {
         ResultException resultException =
-                new ResultException(exception.getType(), exception.getMessage(),exception.getCode(), exception.getDetails());
+                new ResultException(exception.getType(), exception.getMessage(), exception.getCode(), exception.getDetails());
         return new ResponseEntity<>(resultException, HttpStatus.BAD_REQUEST);
     }
 }

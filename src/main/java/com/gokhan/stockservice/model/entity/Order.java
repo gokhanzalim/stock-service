@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode(of = {"id"})
 @ToString
 @SuperBuilder
-public class Order extends BaseEntity{
+public class Order extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @Id

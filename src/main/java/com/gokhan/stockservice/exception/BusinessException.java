@@ -9,10 +9,11 @@ public class BusinessException extends GeneralException {
         super(ExceptionType.BUSINESS, message, code, details);
     }
 
-    public BusinessException(String message, String code){
+    public BusinessException(String message, String code) {
         super(ExceptionType.BUSINESS, message, code);
     }
-    public BusinessException(String code){
+
+    public BusinessException(String code) {
         super(ExceptionType.BUSINESS, code);
     }
 }

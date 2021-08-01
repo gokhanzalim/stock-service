@@ -7,5 +7,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Data
 @NoArgsConstructor
-public class CustomerOrderResponse extends CreateOrderResponse{
+public class CustomerOrderResponse extends CreateOrderResponse {
 }

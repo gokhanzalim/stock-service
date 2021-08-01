@@ -9,6 +9,8 @@ import java.util.Optional;
 
 public interface OrderService {
     CreateOrderResponse order(CreateOrderRequest request);
+
     Optional<Order> findById(Long id);
+
     List<Order> findByUserIdAndActive(Long id, boolean isActive);
 }

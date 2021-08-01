@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI(@Value("${application-description}") String description,
-                                 @Value("${application-version}") String version){
+                                 @Value("${application-version}") String version) {
         return new OpenAPI()
                 .info(new Info()
                         .title("Stock Service Application API")

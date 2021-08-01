@@ -23,7 +23,7 @@ public class CategoryController {
 
     @PostMapping("/save")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<?> save(@Valid @RequestBody CreateCategoryRequest createCategoryRequest){
+    public ResponseEntity<?> save(@Valid @RequestBody CreateCategoryRequest createCategoryRequest) {
         return ResponseEntity.ok(categoryService.save(createCategoryRequest));
     }
 }

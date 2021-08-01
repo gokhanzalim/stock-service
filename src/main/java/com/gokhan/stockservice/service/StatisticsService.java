@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface StatisticsService {
     List<Order> getStatisticMonthly(StatisticsRequest request);
+
     List<Order> getAllOfCurrentMonth();
+
     List<StatisticsResponse> getAllOrderStatisticsPerMonth();
 }

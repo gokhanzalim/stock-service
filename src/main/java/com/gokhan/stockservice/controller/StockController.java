@@ -24,13 +24,13 @@ public class StockController {
 
     @PostMapping("/save")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> save(@Valid @RequestBody CreateStockRequest createStockRequest){
+    public ResponseEntity<?> save(@Valid @RequestBody CreateStockRequest createStockRequest) {
         return ResponseEntity.ok(stockService.save(createStockRequest));
     }
 
     @PostMapping("/update")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> update(@Valid @RequestBody UpdateStockRequest request){
+    public ResponseEntity<?> update(@Valid @RequestBody UpdateStockRequest request) {
         return ResponseEntity.ok(stockService.update(request));
     }
 }

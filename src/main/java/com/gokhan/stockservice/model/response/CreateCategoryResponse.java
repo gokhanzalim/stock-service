@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @SuperBuilder
 @NoArgsConstructor
-public class CreateCategoryResponse{
+public class CreateCategoryResponse {
 
     private Long id;
     private String name;

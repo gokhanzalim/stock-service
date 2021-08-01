@@ -22,7 +22,7 @@ public class OrderController {
 
     @PostMapping("/save")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> save(@Valid @RequestBody CreateOrderRequest createOrderRequest){
+    public ResponseEntity<?> save(@Valid @RequestBody CreateOrderRequest createOrderRequest) {
         return ResponseEntity.ok(orderService.order(createOrderRequest));
     }
 }

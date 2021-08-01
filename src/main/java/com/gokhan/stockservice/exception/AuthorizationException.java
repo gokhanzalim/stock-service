@@ -9,10 +9,11 @@ public class AuthorizationException extends GeneralException {
         super(ExceptionType.AUTHORIZATION, message, code, details);
     }
 
-    public AuthorizationException(String message, String code){
+    public AuthorizationException(String message, String code) {
         super(ExceptionType.AUTHORIZATION, message, code);
     }
-    public AuthorizationException(String code){
+
+    public AuthorizationException(String code) {
         super(ExceptionType.AUTHORIZATION, code);
     }
 }

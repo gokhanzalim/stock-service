@@ -144,13 +144,13 @@ public class UserServiceImpl implements UserService {
                 SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long userId = Optional.ofNullable(request.getUserId()).orElse(user.getId());
         List<Order> orderList = orderService.findByUserIdAndActive(userId, Boolean.TRUE);
-        List<CustomerOrderResponse> list =  orderList.stream()
-                 .map(item -> CustomerOrderResponse.builder()
-                         .books(item.getBook())
-                         .id(item.getId())
-                         .quantity(item.getQuantity())
-                          .totalAmount(item.getPrice())
-                         .userId(item.getUserId()).build())
+        List<CustomerOrderResponse> list = orderList.stream()
+                .map(item -> CustomerOrderResponse.builder()
+                        .books(item.getBook())
+                        .id(item.getId())
+                        .quantity(item.getQuantity())
+                        .totalAmount(item.getPrice())
+                        .userId(item.getUserId()).build())
                 .collect(Collectors.toList());
 
         return list;

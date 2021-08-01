@@ -12,13 +12,13 @@ public class GeneralException extends RuntimeException {
     private String code;
     private List<String> details;
 
-    public GeneralException(ExceptionType type, String message,String code, List<String> details) {
-        this(type, message,code);
+    public GeneralException(ExceptionType type, String message, String code, List<String> details) {
+        this(type, message, code);
         this.details = details;
     }
 
     public GeneralException(ExceptionType type, String message, String code) {
-        this(type,code);
+        this(type, code);
         this.message = message;
     }
 

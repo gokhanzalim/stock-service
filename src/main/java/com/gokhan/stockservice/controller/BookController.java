@@ -22,7 +22,7 @@ public class BookController {
 
     @PostMapping("/save")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<?> save(@Valid @RequestBody CreateBookRequest createBookRequest){
+    public ResponseEntity<?> save(@Valid @RequestBody CreateBookRequest createBookRequest) {
         return ResponseEntity.ok(bookService.save(createBookRequest));
     }
 }

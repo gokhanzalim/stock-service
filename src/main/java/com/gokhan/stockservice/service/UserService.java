@@ -10,7 +10,9 @@ import com.gokhan.stockservice.model.response.LoginResponse;
 import java.util.List;
 
 public interface UserService {
-    CreateUserResponse  registerUser(CreateUserRequest createUserRequest);
+    CreateUserResponse registerUser(CreateUserRequest createUserRequest);
+
     LoginResponse authenticateUser(LoginRequest loginRequest);
+
     List<CustomerOrderResponse> getCustomerOrders(GetCustomerOrderRequest request);
 }

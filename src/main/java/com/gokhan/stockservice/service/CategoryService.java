@@ -8,5 +8,6 @@ import java.util.Optional;
 
 public interface CategoryService {
     CreateCategoryResponse save(CreateCategoryRequest request);
+
     Optional<Category> findById(Long id);
 }

@@ -17,19 +17,19 @@ public class StatisticsController {
 
     @PostMapping("/monthly")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> getStatisticMonthly(@RequestBody StatisticsRequest request){
+    public ResponseEntity<?> getStatisticMonthly(@RequestBody StatisticsRequest request) {
         return ResponseEntity.ok(statisticsService.getStatisticMonthly(request));
     }
 
     @GetMapping("/allofcurrentmonth")
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    public ResponseEntity<?> getStatisticMonthly(){
+    public ResponseEntity<?> getStatisticMonthly() {
         return ResponseEntity.ok(statisticsService.getAllOfCurrentMonth());
     }
 
     @GetMapping("/allorderstatisticspermonth")
     @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-    public ResponseEntity<?> getAllOrderStatisticsPerMonth(){
+    public ResponseEntity<?> getAllOrderStatisticsPerMonth() {
         return ResponseEntity.ok(statisticsService.getAllOrderStatisticsPerMonth());
     }
 }

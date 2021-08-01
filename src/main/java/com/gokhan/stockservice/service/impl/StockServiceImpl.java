@@ -33,7 +33,7 @@ public class StockServiceImpl implements StockService {
     public CreateStockResponse save(CreateStockRequest request) {
 
         Book book = bookService.findById(request.getBookId())
-                     .orElseThrow(() -> new BusinessException("Book Not found!", ExceptionConstants.BOOK_NOT_FOUND));
+                .orElseThrow(() -> new BusinessException("Book Not found!", ExceptionConstants.BOOK_NOT_FOUND));
 
         final String user = SecurityContextHolder.getContext().getAuthentication().getName();
         final Stock bookInDb = stockRepository.save(
@@ -59,7 +59,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public void updateStockQuantity(Integer quantity, Long id) {
-        stockRepository.updateStockQuantity(quantity,id);
+        stockRepository.updateStockQuantity(quantity, id);
     }
 
     @Transactional
